@@ -1,0 +1,11 @@
+{
+ "text": {
+          "content": "Server settings", 
+          "embeds":[
+                 {"title":"Configuring {server.name}", 
+                  "description": "Configure your server through the bot, instead of accessing a website, have an easier and faster configuration!",
+                  "thumbnail": {"url": "{server.icon}"},
+                  "color": "#0099ff"}
+                 ]
+         }
+}
