@@ -14,7 +14,7 @@ module.exports = class extends Command {
         const user = await Users.findOne({_id: interaction.member.id});
         const lang = this.client.lang({lang: user.lang, cmd: 'settings'})
         const string = JSON.stringify(lang.text)
-                           .replace("{server.icon}", interaction.guild.iconURL({dynamic:true, size:4096}))
+                           .replace("{server.icon}", interaction.guild.iconURL({dynamic:true, size:4096})?interaction.guild.iconURL({dynamic:true, size:4096}):"https://cdn.discordapp.com/embed/avatars/0.png?size=4096")
                            .replace("{server.name}", interaction.guild.name)
         const json = JSON.parse(string)
         interaction.reply(json)
