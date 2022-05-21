@@ -13,6 +13,7 @@ module.exports = class extends Command {
      run = async (interaction) => {
         const user = await Users.findOne({_id: interaction.member.id});
         const lang = this.client.lang({lang: user.lang, cmd: 'settings'})
-        
+        const json = JSON.parse(lang.text)
+        interaction.reply(json)
      }
 }
