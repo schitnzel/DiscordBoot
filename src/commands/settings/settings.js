@@ -13,7 +13,10 @@ module.exports = class extends Command {
      run = async (interaction) => {
         const user = await Users.findOne({_id: interaction.member.id});
         const lang = this.client.lang({lang: user.lang, cmd: 'settings'})
-        const json = JSON.parse(JSON.stringify(lang.text))
+        const string = JSON.stringify(lang.text)
+                           .replace("{server.icon}", interaction.guild.iconURL({dynamic:true, size:4096}))
+                           .replace("{server.name}", interaction.guild.name)
+        const json = JSON.parse(string)
         interaction.reply(json)
      }
 }
