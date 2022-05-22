@@ -9,10 +9,10 @@ module.exports = class extends Command {
             description: 'Altere idioma do bot para seu cliente.',
             options: [{
              name: 'language',
-             type: "STRING",
+             type: 3,
              description:'Idioma para ser alterado',
              required:true,
-             choices: [{name: "Portugues Brasileiro", value: "pt-br"}, {name: "Inglês Americano", value: "en-us"}]
+             choices: [{name: "Portugues Brasileiro", value: "pt-br"}, {name: "English (US)", value: "en-us"}]
             }]
         })
     }
