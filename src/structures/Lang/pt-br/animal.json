@@ -1,5 +1,11 @@
 {
  "cat": { 
    "text":"🐱 • Miau"
+ },
+ "frog": {
+   "text":"🐸 • Croac"
+ },
+ "capybara": {
+   "text":"<:emoji_3:977945884346175549> • Grr!"
  }
 }
