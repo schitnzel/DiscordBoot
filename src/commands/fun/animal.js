@@ -9,7 +9,7 @@ module.exports = class extends Command {
             name: 'animal',
             description: 'Fotinhas de animais',
             options: [{
-              name: 'animal',
+              name: 'animals',
               type: 3,
               required: false,
               choices: [{name: "Gato", value: 'cat'}]
@@ -19,7 +19,7 @@ module.exports = class extends Command {
     run = async (interaction) => {
         const user = await Users.findOne({_id: interaction.member.id});
         const lang = this.client.lang({lang: user.lang, cmd: 'animal'});
-        const animal = async animality.getAsync(interaction.options.getString('animal'), process.env.apikey);
+        const animal = async animality.getAsync(interaction.options.getString('animals'), process.env.apikey);
         interaction.reply({embeds: [{title: lang.text[animal.name] || "🐇 | Animal", image: {url: animal.url}}]})
     }
 }
