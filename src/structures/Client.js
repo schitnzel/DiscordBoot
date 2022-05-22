@@ -18,7 +18,7 @@ module.exports = class extends Client {
      return lang;
     }
     async registryCommands() {
-     const rest = new REST({ version: '9' }).setToken(token);
+     const rest = new REST({ version: '9' }).setToken(process.env.token);
      var cmds = this.commands;
      try {
         await rest.put(
