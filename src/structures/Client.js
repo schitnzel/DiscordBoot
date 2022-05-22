@@ -1,4 +1,7 @@
 const { Client } = require('discord.js')
+const { REST } = require('@discordjs/rest');
+const { Routes } = require('discord-api-types/v9');
+
 
 const { readdirSync } = require('fs')
 const { join } = require('path')
@@ -14,9 +17,20 @@ module.exports = class extends Client {
      const lang = require(`./Lang/${opt.lang}/${opt.cmd}.json`);
      return lang;
     }
-    registryCommands() {
-     this.guilds.cache.get(process.env.guild_id).commands.set(this.commands)
-     this.application.commands.set(this.commands)
+    async registryCommands() {
+     const rest = new REST({ version: '9' }).setToken(token);
+     var cmds = this.commands;
+     try {
+        await rest.put(
+            Routes.applicationCommands(process.env.client_id),
+            { body: cmds },
+         );
+         await rest.put(
+            Routes.applicationGuildCommands(process.env.client_id, process.env.guild_id),
+            { body: cmds },
+        )
+        console.log('Slash commands successfully deployed !');
+      } catch(e) {console.log(e)}
     }
     loadCommands(path = 'src/commands') {
         const categories = readdirSync(path)
