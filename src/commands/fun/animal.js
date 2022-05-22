@@ -19,8 +19,8 @@ module.exports = class extends Command {
     }
     run = async (interaction) => {
         const user = await Users.findOne({_id: interaction.member.id});
-        const lang = this.client.lang({lang: user.lang, cmd: 'animal'});
+        // const lang = this.client.lang({lang: user.lang, cmd: 'animal'});
         const animal = await animality.getAsync(interaction.options.getString('animals') || 'random', process.env.apikey);
-        interaction.reply({embeds: [{title: lang.text[animal.name], image: {url: animal.image}}]})
+        interaction.reply({embeds: [{color: 'RANDOM', image: {url: animal.image}}]})
     }
 }
