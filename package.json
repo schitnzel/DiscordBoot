@@ -20,6 +20,7 @@
   "homepage": "https://github.com/Ayu-Bot/DiscordBoot#readme",
   "dependencies": {
     "@discordjs/rest": "^0.4.1",
+    "animality": "^1.6.4",
     "chalk": "^4.1.2",
     "discord-api-types": "^0.32.1",
     "discord-interactions": "^3.2.0",
