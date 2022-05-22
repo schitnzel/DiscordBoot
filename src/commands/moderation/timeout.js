@@ -10,13 +10,13 @@ module.exports = class extends Command {
             options: [
                 {
                     name: 'user',
-                    type: 'USER',
+                    type: 6,
                     description: 'User to be timeout.',
                     required: true
                 },
                 {
                     name: 'time',
-                    type: 'STRING',
+                    type: 3,
                     description: 'Time for user to be timeouted ',
                     required:true,
                     choices: [{name: "One week", value: "7d"}, {name: "1 Day", value:"1d"}, {name: "One hour", value: "1h"}, {name: "One minute", value:"1m"}]
